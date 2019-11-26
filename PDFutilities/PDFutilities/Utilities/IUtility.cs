@@ -8,6 +8,8 @@ namespace PDFutilities.Utilities
 {
     public interface IUtility
     {
+        string FileName { get; set; }
+
         void run();
 
         void displayEndMessage();

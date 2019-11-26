@@ -7,15 +7,14 @@ namespace PDFutilities.Utilities
 {
     class MergePDF : IUtility
     {
+        public string FileName { get; set; }
+
         public void run()
         {
-            Console.WriteLine("Enter the directory path with the PDFs to merge");
-            string dir = Console.ReadLine();
-            
-            this.doMerge(
-                Directory.GetFiles(dir, "*.pdf"),
-                Directory.GetParent(dir).FullName + "\\" + new DirectoryInfo(dir).Name + ".pdf"
-            );
+            string[] fileNames = Directory.GetFiles(FileName, "*.pdf");
+            string outFileName = Directory.GetParent(FileName).FullName + "\\" + new DirectoryInfo(FileName).Name + ".pdf";
+
+            this.doMerge(fileNames, outFileName);
         }
 
         public void doMerge(string[] _fileNames, string _outFile)
@@ -59,7 +58,7 @@ namespace PDFutilities.Utilities
 
         public void displayEndMessage()
         {
-            Console.WriteLine("Files merged correctly");
+            Console.WriteLine("Files merged correctly.\n");
         }
     }
 }

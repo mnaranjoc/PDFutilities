@@ -22,15 +22,25 @@ namespace PDFutilities
                 switch (opc)
                 {
                     case 1: utility = new MergePDF(); break;
+                    case 2: utility = new CountPages(); break;
                     default: utility = new NothingPDF(); break;
                 }
 
+                utility.FileName = GetFileName();
                 utility.run();
                 utility.displayEndMessage();
             }
             while (opc > 0);
 
             menu.end();
+        }
+
+        public static string GetFileName()
+        {
+            Console.WriteLine("Enter the directory path with the PDF files");
+            string dir = Console.ReadLine();
+
+            return dir;
         }
     }
 }

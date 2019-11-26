@@ -49,6 +49,7 @@
     <Compile Include="Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\CountPages.cs" />
     <Compile Include="Utilities\IUtility.cs" />
     <Compile Include="Utilities\MergePDF.cs" />
     <Compile Include="Utilities\NothingPDF.cs" />
