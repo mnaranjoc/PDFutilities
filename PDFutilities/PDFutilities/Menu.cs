@@ -11,7 +11,7 @@ namespace PDFutilities
             Console.WriteLine("Choose an option to work with PDF files:");
             Console.WriteLine("0 - Exit");
             Console.WriteLine("1 - Merge");
-            Console.WriteLine("2 - Count");
+            Console.WriteLine("2 - Count pages");
             Console.WriteLine("");
 
             string input = Console.ReadLine();
