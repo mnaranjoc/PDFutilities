@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000">
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        Title="{Binding AppTitle}" Height="600" Width="1000">
     <DockPanel LastChildFill="True">
+
         <Grid DockPanel.Dock="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -15,12 +17,21 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-
             <Label Content="Folder: " />
+            <TextBox Grid.Column="1" />
+            <Button Grid.Column="2" Content="Load" Command="{Binding LoadFilesCommand}" />
 
         </Grid>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="873*" />
+                <ColumnDefinition Width="19*"/>
+            </Grid.ColumnDefinitions>
+            <ListBox Width="200" ItemsSource="{Binding FileList}" DisplayMemberPath="Name" />
+        </Grid>
     </DockPanel>
 
 </Window>
