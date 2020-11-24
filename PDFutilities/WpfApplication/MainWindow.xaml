@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="{Binding AppTitle}" Height="600" Width="1000">
+    
     <DockPanel LastChildFill="True">
-
         <Grid DockPanel.Dock="Top">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -18,19 +18,26 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Folder: " />
-            <TextBox Grid.Column="1" />
-            <Button Grid.Column="2" Content="Load" Command="{Binding LoadFilesCommand}" />
+            <Label Content="Folder:" Margin="2" />
+            <TextBox Grid.Column="1" Text="{Binding Folder}" Margin="2" />
+            <Button Grid.Column="2" Content="Folder" Command="{Binding SelectFolderCommand}" />
+            <Button Grid.Column="3" Content="Load" Command="{Binding LoadFilesCommand}" Margin="2" Padding="8,0,8,0" />
 
         </Grid>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="873*" />
-                <ColumnDefinition Width="19*"/>
-            </Grid.ColumnDefinitions>
-            <ListBox Width="200" ItemsSource="{Binding FileList}" DisplayMemberPath="Name" />
+            <!--<ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding FileList}" DisplayMemberPath="Name" />-->
+            <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding FileList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="Images/iconPdf.jpg" MaxWidth="13"/>
+                            <TextBlock Text="{Binding Name}" Margin="4"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
     </DockPanel>
 
