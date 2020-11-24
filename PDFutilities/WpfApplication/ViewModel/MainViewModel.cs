@@ -14,15 +14,13 @@ namespace WpfApplication.ViewModel
         public string AppTitle { get; set; }
         public ObservableCollection<File> FileList { get; set; }
         public ICommand LoadFilesCommand { get; set; }
-        public ICommand SelectFolderCommand { get; set; }
         public MainViewModel()
         {
             AppTitle = Constants.AppTitle;
             LoadFilesCommand = new RelayCommand(LoadFilesMethod);
-            SelectFolderCommand = new RelayCommand(SelectFolderMethod);
         }
 
-        private void SelectFolderMethod()
+        private void LoadFilesMethod()
         {
             using (var dialog = new FolderBrowserDialog())
             {
@@ -30,24 +28,21 @@ namespace WpfApplication.ViewModel
                 {
                     Folder = dialog.SelectedPath;
                     this.RaisePropertyChanged(() => this.Folder);
+
+                    if (Directory.Exists(Folder))
+                    {
+                        FileList = new ObservableCollection<File>();
+                        var files = Directory.GetFiles(Folder, "*.pdf");
+
+                        foreach (var file in files)
+                        {
+                            FileList.Add(new File(file));
+                        }
+                    }
+
+                    this.RaisePropertyChanged(() => this.FileList);
                 }
             }
-        }
-
-        private void LoadFilesMethod()
-        {
-            if (Directory.Exists(Folder))
-            {
-                FileList = new ObservableCollection<File>();
-                var files = Directory.GetFiles(Folder, "*.pdf");
-
-                foreach (var file in files)
-                {
-                    FileList.Add(new File(file));
-                }
-            }
-
-            this.RaisePropertyChanged(() => this.FileList);
         }
     }
 }
