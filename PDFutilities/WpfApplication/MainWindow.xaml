@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApplication"
         mc:Ignorable="d"
         DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="{Binding AppTitle}" Height="600" Width="1000">
+        Title="{Binding AppTitle}" Height="600" Width="500">
     
     <DockPanel LastChildFill="True">
         <Grid DockPanel.Dock="Top">
@@ -19,9 +19,9 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Folder:" Margin="2" />
-            <TextBox Grid.Column="1" Text="{Binding Folder}" Margin="2" IsEnabled="False" />
-            <Button Grid.Column="2" Command="{Binding LoadFilesCommand}" Margin="2" Padding="4,0,4,0">
+            <Label Content="Folder:" Margin="4" />
+            <TextBox Grid.Column="1" Text="{Binding Folder}" Margin="4" Padding="0,4" IsEnabled="False" />
+            <Button Grid.Column="2" Command="{Binding LoadFilesCommand}" Margin="4" Padding="6,0,4,0">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="Images/iconFolder.jpg" MaxWidth="20"/>
                     <TextBlock Text="Load" Margin="4"/>
@@ -30,12 +30,25 @@
 
         </Grid>
         <Grid>
-            <ListBox HorizontalContentAlignment="Stretch" ItemsSource="{Binding FileList}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Margin="4">
+                <Label Margin="4">Order by:</Label>
+                <Button Width="Auto" Margin="4" Command="{Binding OrderByNameCommand}">
+                    <TextBlock Margin="4,0,4,0" TextWrapping="Wrap">↑ Name</TextBlock>
+                </Button>
+                <Button Width="Auto" Margin="4" Command="{Binding OrderByNoOfPagesCommand}">
+                    <TextBlock Margin="4,0,4,0" TextWrapping="Wrap">↓ No. of pages</TextBlock>
+                </Button>
+            </StackPanel>
+            <ListBox Margin="4" HorizontalContentAlignment="Stretch" ItemsSource="{Binding FileList}" Grid.Row="1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <Image Source="Images/iconPdf.jpg" MaxWidth="13"/>
-                            <TextBlock Text="{Binding Name}" Margin="4"/>
+                            <TextBlock Text="{Binding DisplayText}" Margin="4"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
