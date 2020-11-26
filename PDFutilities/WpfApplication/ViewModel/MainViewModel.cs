@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Input;
+using WpfApplication.Utilities;
 
 namespace WpfApplication.ViewModel
 {
@@ -62,11 +63,13 @@ namespace WpfApplication.ViewModel
 
         private void OrderByNoOfPages()
         {
+            FileList = new FileUtilities(FileList).CountPages();
+
             var newOrderedList = from f in FileList
                                  orderby f.Pages
                                  select f;
 
-            FileList = new ObservableCollection<File>(newOrderedList.ToList());
+            FileList = new ObservableCollection<File>(FileList.OrderBy(s => s.Pages));
             this.RaisePropertyChanged(() => this.FileList);
         }
     }

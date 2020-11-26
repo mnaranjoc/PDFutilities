@@ -11,10 +11,16 @@ namespace WpfApplication
     public class File
     {
         public string Name;
-        public int Pages;
-        private string FullPath;
+        public int? Pages;
+        public string FullPath;
         public string DisplayText {
-            get { return string.Format("{0} ({1} pages)", Name, Pages); }
+            get
+            {
+                if (Pages == null)
+                    return string.Format("{0}", Name);
+                else
+                    return string.Format("{0} ({1:n} pages)", Name, Pages);
+            }
             set { DisplayText = value; }
         }
 
@@ -22,8 +28,6 @@ namespace WpfApplication
         {
             FullPath = _FullPath;
             Name = Path.GetFileName(FullPath);
-            Pages = new Random().Next();
-            Thread.Sleep(500);
         }
     }
 }
