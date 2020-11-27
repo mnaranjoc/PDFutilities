@@ -23,6 +23,7 @@ namespace WpfApplication.ViewModel
         public MainViewModel()
         {
             AppTitle = Constants.AppTitle;
+
             LoadFilesCommand = new RelayCommand(LoadFilesMethod);
             OrderByNameCommand = new RelayCommand(OrderByNameMethod);
             OrderByNoOfPagesCommand = new RelayCommand(OrderByNoOfPages);
@@ -52,9 +53,7 @@ namespace WpfApplication.ViewModel
                 var files = Directory.GetFiles(Folder, "*.pdf");
 
                 foreach (var file in files)
-                {
                     FileList.Add(new File(file));
-                }
 
                 this.RaisePropertyChanged(() => this.FileList);
             }
@@ -62,22 +61,13 @@ namespace WpfApplication.ViewModel
 
         private void OrderByNameMethod()
         {
-            var newOrderedList = from f in FileList
-                                 orderby f.Name
-                                 select f;
-
-            FileList = new ObservableCollection<File>(newOrderedList.ToList());
+            FileList = new ObservableCollection<File>(FileList.OrderBy(s => s.Name));
             this.RaisePropertyChanged(() => this.FileList);
         }
 
         private void OrderByNoOfPages()
         {
             FileList = new FileUtilities(FileList, Folder).CountPages();
-
-            var newOrderedList = from f in FileList
-                                 orderby f.Pages
-                                 select f;
-
             FileList = new ObservableCollection<File>(FileList.OrderBy(s => s.Pages));
             this.RaisePropertyChanged(() => this.FileList);
         }
@@ -85,7 +75,6 @@ namespace WpfApplication.ViewModel
         private void MergeFilesMethod()
         {
             new FileUtilities(FileList, Folder).MergeFiles();
-
             GetFilesFromDirectory();
         }
     }
