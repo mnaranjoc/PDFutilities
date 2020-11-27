@@ -19,7 +19,7 @@ namespace WpfApplication
                 if (Pages == null)
                     return string.Format("{0}", Name);
                 else
-                    return string.Format("{0} ({1:n} pages)", Name, Pages);
+                    return string.Format("{0} ({1:n0} pages)", Name, Pages);
             }
             set { DisplayText = value; }
         }

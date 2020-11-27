@@ -36,11 +36,18 @@
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" Margin="4">
                 <Label Margin="4">Order by:</Label>
-                <Button Width="Auto" Margin="4" Command="{Binding OrderByNameCommand}">
+                <Button Width="Auto" Height="30" Margin="4" Command="{Binding OrderByNameCommand}">
                     <TextBlock Margin="4,0,4,0" TextWrapping="Wrap">↑ Name</TextBlock>
                 </Button>
-                <Button Width="Auto" Margin="4" Command="{Binding OrderByNoOfPagesCommand}">
+                <Button Width="Auto" Height="30" Margin="4" Command="{Binding OrderByNoOfPagesCommand}">
                     <TextBlock Margin="4,0,4,0" TextWrapping="Wrap">↓ No. of pages</TextBlock>
+                </Button>
+                <Label Margin="4">Actions:</Label>
+                <Button Height="30" Margin="4" Command="{Binding MergeFilesCommand}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/iconMerge.png" MaxWidth="13" Margin="2,0"/>
+                            <TextBlock Text="Merge files" Margin="4"/>
+                    </StackPanel>
                 </Button>
             </StackPanel>
             <ListBox Margin="4" HorizontalContentAlignment="Stretch" ItemsSource="{Binding FileList}" Grid.Row="1">
