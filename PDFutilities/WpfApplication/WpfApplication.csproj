@@ -51,8 +51,9 @@
       <HintPath>..\packages\MvvmLightLibs.5.4.1.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="iTextSharp">
-      <HintPath>..\..\..\..\..\Desktop\iTextSharp.dll</HintPath>
+    <Reference Include="iTextSharp, Version=4.1.6.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <HintPath>..\packages\iTextSharp-LGPL.4.1.6\lib\iTextSharp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
