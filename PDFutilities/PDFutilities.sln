@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApplication", "WpfApplication\WpfApplication.csproj", "{F7723479-19ED-487A-9EB1-AE65F152BC65}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{AD39BE83-5B6A-42F4-AEFE-D51B91770EBB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFUtil", "PDFUtil\PDFUtil.csproj", "{761545CC-1710-4E3D-A86E-1F9145C2E43B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFUtil.Module.Navigation", "PDFUtil.Module.Navigation\PDFUtil.Module.Navigation.csproj", "{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +21,19 @@ Global
 		{F7723479-19ED-487A-9EB1-AE65F152BC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7723479-19ED-487A-9EB1-AE65F152BC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7723479-19ED-487A-9EB1-AE65F152BC65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761545CC-1710-4E3D-A86E-1F9145C2E43B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761545CC-1710-4E3D-A86E-1F9145C2E43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761545CC-1710-4E3D-A86E-1F9145C2E43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761545CC-1710-4E3D-A86E-1F9145C2E43B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06} = {AD39BE83-5B6A-42F4-AEFE-D51B91770EBB}
 	EndGlobalSection
 EndGlobal
