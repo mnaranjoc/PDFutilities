@@ -21,7 +21,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Background="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}">
             <Rectangle Margin="5" Fill="Red" Stroke="Black" Width="30"/>
-            <Label Margin="5" Content="PDF Util" FontFamily="Calibri" FontSize="20" Foreground="White"/>
+            <Label Margin="5" Content="PDF Util" FontFamily="Calibri" FontSize="20" Foreground="White" VerticalAlignment="Center"/>
         </StackPanel>
             <Border Grid.Row="1">
             <ContentControl prism:RegionManager.RegionName="NavigationRegion" />

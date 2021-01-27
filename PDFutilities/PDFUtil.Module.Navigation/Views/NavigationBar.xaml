@@ -35,8 +35,7 @@
     <Grid>
         <StackPanel Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
             <Button x:Name="btnMerge" Command="{Binding LoadMergeModuleCommand}" Style="{StaticResource MenuItemButton}" Content="Merge"/>
-            <Button x:Name="btnSplit" Style="{StaticResource MenuItemButton}" Content="Split"/>
-            <Button x:Name="btnCount" Style="{StaticResource MenuItemButton}" Content="Count Pages"/>
+            <Button x:Name="btnCountPages" Command="{Binding LoadCountPagesModuleCommand}" Style="{StaticResource MenuItemButton}" Content="Count Pages"/>
         </StackPanel>
     </Grid>
 </UserControl>

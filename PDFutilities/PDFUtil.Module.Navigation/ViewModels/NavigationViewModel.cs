@@ -12,6 +12,7 @@ namespace PDFUtil.Module.Navigation.ViewModels
         public IUnityContainer UnityContainer { get; set; }
         public IModuleManager ModuleManager { get; set; }
         public DelegateCommand LoadMergeModuleCommand { get; private set; }
+        public DelegateCommand LoadCountPagesModuleCommand { get; private set; }
 
         public NavigationViewModel(IRegionManager regionManager, IModuleManager moduleManager, IUnityContainer container)
         {
@@ -20,6 +21,7 @@ namespace PDFUtil.Module.Navigation.ViewModels
             this.UnityContainer = container;
 
             LoadMergeModuleCommand = new DelegateCommand(loadMergeModule);
+            LoadCountPagesModuleCommand = new DelegateCommand(loadCountPagesModule);
         }
 
         private void loadMergeModule()
@@ -27,6 +29,14 @@ namespace PDFUtil.Module.Navigation.ViewModels
             ModuleManager.LoadModule("MergeModule");
             var contentRegion = RegionManager.Regions["ContentRegion"];
             var newView = contentRegion.GetView("MergeView");
+            contentRegion.Activate(newView);
+        }
+
+        private void loadCountPagesModule()
+        {
+            ModuleManager.LoadModule("CountPagesModule");
+            var contentRegion = RegionManager.Regions["ContentRegion"];
+            var newView = contentRegion.GetView("CountPagesView");
             contentRegion.Activate(newView);
         }
     }
