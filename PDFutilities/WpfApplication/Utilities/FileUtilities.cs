@@ -3,6 +3,7 @@ using iTextSharp.text.pdf;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace WpfApplication.Utilities
 {
@@ -33,42 +34,49 @@ namespace WpfApplication.Utilities
 
         public void MergeFiles()
         {
-            string outFile = string.Format("{0}\\({1:n0})FilesMerged.pdf", Path, FileList.Count);
-
-            Document document = new Document();
-
-            using (FileStream newFileStream = new FileStream(outFile, FileMode.Create))
+            if (FileList == null || FileList.Count == 0)
             {
-                PdfCopy writer = new PdfCopy(document, newFileStream);
-                if (writer == null)
+                MessageBox.Show("No PDF files found on folder.");
+            }
+            else
+            {
+                string outFile = string.Format("{0}\\({1:n0})FilesMerged.pdf", Path, FileList.Count);
+
+                Document document = new Document();
+
+                using (FileStream newFileStream = new FileStream(outFile, FileMode.Create))
                 {
-                    return;
-                }
-
-                document.Open();
-
-                foreach (var file in FileList)
-                {
-                    PdfReader reader = new PdfReader(file.FullPath);
-                    reader.ConsolidateNamedDestinations();
-
-                    for (int i = 1; i <= reader.NumberOfPages; i++)
+                    PdfCopy writer = new PdfCopy(document, newFileStream);
+                    if (writer == null)
                     {
-                        PdfImportedPage page = writer.GetImportedPage(reader, i);
-                        writer.AddPage(page);
+                        return;
                     }
 
-                    PRAcroForm form = reader.AcroForm;
-                    if (form != null)
+                    document.Open();
+
+                    foreach (var file in FileList)
                     {
-                        writer.CopyAcroForm(reader);
+                        PdfReader reader = new PdfReader(file.FullPath);
+                        reader.ConsolidateNamedDestinations();
+
+                        for (int i = 1; i <= reader.NumberOfPages; i++)
+                        {
+                            PdfImportedPage page = writer.GetImportedPage(reader, i);
+                            writer.AddPage(page);
+                        }
+
+                        PRAcroForm form = reader.AcroForm;
+                        if (form != null)
+                        {
+                            writer.CopyAcroForm(reader);
+                        }
+
+                        reader.Close();
                     }
 
-                    reader.Close();
+                    writer.Close();
+                    document.Close();
                 }
-
-                writer.Close();
-                document.Close();
             }
         }
     }
