@@ -6,7 +6,8 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:local="clr-namespace:PDFUtil"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="PDF Util - MNC" Height="500" Width="800"
+        WindowState="Maximized">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -20,7 +21,7 @@
 
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Background="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}">
             <Rectangle Margin="5" Fill="Red" Stroke="Black" Width="30"/>
-            <Label Margin="5" Content="PDF Util" FontFamily="Calibri" FontSize="16" Foreground="White"/>
+            <Label Margin="5" Content="PDF Util" FontFamily="Calibri" FontSize="20" Foreground="White"/>
         </StackPanel>
             <Border Grid.Row="1">
             <ContentControl prism:RegionManager.RegionName="NavigationRegion" />
