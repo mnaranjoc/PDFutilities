@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFUtil", "PDFUtil\PDFUtil.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFUtil.Module.Navigation", "PDFUtil.Module.Navigation\PDFUtil.Module.Navigation.csproj", "{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDFUtil.Module.Merge", "PDFUtil.Module.Merge\PDFUtil.Module.Merge.csproj", "{DE6CA622-18E8-4458-9BCF-697C11877693}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,11 +31,16 @@ Global
 		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE6CA622-18E8-4458-9BCF-697C11877693}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE6CA622-18E8-4458-9BCF-697C11877693}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE6CA622-18E8-4458-9BCF-697C11877693}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE6CA622-18E8-4458-9BCF-697C11877693}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C0E6957E-6B5B-4A33-936E-8C58AF55EE06} = {AD39BE83-5B6A-42F4-AEFE-D51B91770EBB}
+		{DE6CA622-18E8-4458-9BCF-697C11877693} = {AD39BE83-5B6A-42F4-AEFE-D51B91770EBB}
 	EndGlobalSection
 EndGlobal

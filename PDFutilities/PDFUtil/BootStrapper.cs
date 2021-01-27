@@ -1,4 +1,5 @@
 ﻿using PDFUtil.Module.Navigation;
+using PDFUtil.Module.Merge;
 using Prism.Modularity;
 using Prism.Unity;
 using System.Windows;
@@ -22,6 +23,7 @@ namespace PDFUtil
         {
             ModuleCatalog moduleCatalog = (ModuleCatalog)this.ModuleCatalog;
             moduleCatalog.AddModule(typeof(NavigationModule));
+            moduleCatalog.AddModule(typeof(MergeModule), InitializationMode.OnDemand);
         }
     }
 }
