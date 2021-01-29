@@ -6,7 +6,44 @@
              xmlns:local="clr-namespace:PDFUtil.Module.Merge.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <Style TargetType="Label" x:Key="Numeral" >
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Instruction" >
+            <Setter Property="FontFamily" Value="Calibri"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="Gray"/>
+        </Style>
+    </UserControl.Resources>
+
     <Grid>
-        <Label x:Name="label" Content="Merge" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3.3*"/>
+            <RowDefinition Height="3.3*"/>
+            <RowDefinition Height="3.3*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Style="{StaticResource Numeral}">1</Label>
+            <Label Style="{StaticResource Instruction}">Select the files</Label>
+            <Button Grid.Column="2" Content="Here" Command="{Binding LoadFilesCommand}" Margin="4" Padding="4,0,4,0" Height="24" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Label Style="{StaticResource Numeral}">2</Label>
+            <Label Style="{StaticResource Instruction}">Output filename:</Label>
+            <TextBox Width="150" Height="24" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
+            <Label Style="{StaticResource Numeral}">3</Label>
+            <Label Style="{StaticResource Instruction}">Generate file</Label>
+            <Button Grid.Column="2" Content="Here" Command="{Binding LoadFilesCommand}" Margin="4" Padding="4,0,4,0" Height="24" />
+        </StackPanel>
+
     </Grid>
+    
 </UserControl>
