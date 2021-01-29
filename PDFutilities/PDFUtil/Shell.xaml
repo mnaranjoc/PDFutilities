@@ -27,7 +27,7 @@
             <ContentControl prism:RegionManager.RegionName="NavigationRegion" />
         </Border>
         <Border Grid.Row="1" Grid.Column="1">
-            <ContentControl prism:RegionManager.RegionName="ContentRegion" />
+            <ContentControl prism:RegionManager.RegionName="ContentRegion" Margin="20" />
         </Border>
 
     </Grid>
