@@ -103,9 +103,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WPFUtil.Common.Base\WPFUtil.Common.Base.csproj">
-      <Project>{262552eb-c908-4ef1-b0ce-1e14f012b2a9}</Project>
-      <Name>WPFUtil.Common.Base</Name>
+    <ProjectReference Include="..\PDFUtil.Common.Base\PDFUtil.Common.Base.csproj">
+      <Project>{348e8e43-ef48-4869-9633-93f8fa0c520c}</Project>
+      <Name>PDFUtil.Common.Base</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

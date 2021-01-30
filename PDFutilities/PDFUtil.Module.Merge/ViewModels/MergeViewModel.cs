@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WPFUtil.Common.Base;
+using PDFUtil.Common.Base;
 
 namespace PDFUtil.Module.Merge.ViewModels
 {
