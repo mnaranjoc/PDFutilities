@@ -15,11 +15,13 @@ namespace WPFUtil.Common.Base
     {
         private ObservableCollection<File> FileList;
         private string Path;
+        private string OutputFileName;
 
-        public FileUtilities(ObservableCollection<File> _FileList, string _Path)
+        public FileUtilities(ObservableCollection<File> _FileList, string _Path, string _OutputFileName)
         {
             FileList = _FileList;
             Path = _Path;
+            OutputFileName = _OutputFileName;
         }
 
         public ObservableCollection<File> CountPages()
@@ -44,11 +46,11 @@ namespace WPFUtil.Common.Base
             }
             else
             {
-                string outFile = string.Format("{0}\\({1:n0})FilesMerged.pdf", Path, FileList.Count);
+                OutputFileName = System.IO.Path.Combine(Path, $"{OutputFileName}.pdf");
 
                 Document document = new Document();
 
-                using (FileStream newFileStream = new FileStream(outFile, FileMode.Create))
+                using (FileStream newFileStream = new FileStream(OutputFileName, FileMode.Create))
                 {
                     PdfCopy writer = new PdfCopy(document, newFileStream);
                     if (writer == null)

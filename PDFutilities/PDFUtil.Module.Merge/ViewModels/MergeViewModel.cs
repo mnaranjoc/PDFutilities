@@ -42,7 +42,9 @@ namespace PDFUtil.Module.Merge.ViewModels
 
         private void GenerateFileMethod()
         {
-            new FileUtilities(fileList, dir).MergeFiles();
+            new FileUtilities(fileList, dir, OutputFileName).MergeFiles();
+
+            MessageBox.Show("Process finished");
         }
 
         private void GetFilesFromDirectory()
